@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
+use App\Models\Guardian;
 use Illuminate\Http\Request;
 
-class StudentController extends Controller
+class GuardianController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $student = Student::all();
-        return view ('student', ['title' => 'Student', 'student' => $student]);
+        $guardian = Guardian::all();
+        return view ('guardian', ['title' => 'Guardian', 'guardian' => $guardian]);
     }
 
     /**

@@ -11,6 +11,7 @@
                 <x-nav-link href="/profile" :active="request()->is('profile')">Profile</x-nav-link>
                 <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>               
                 <x-nav-link href="/student" :active="request()->is('student')">Student</x-nav-link>               
+                <x-nav-link href="/guardian" :active="request()->is('guardian')">Guardian</x-nav-link>               
             </div>
           </div>
         </div>
