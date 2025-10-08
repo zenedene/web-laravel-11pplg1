@@ -8,6 +8,7 @@ use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Student;
+use App\Models\Subject;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,7 +20,10 @@ class DatabaseSeeder extends Seeder
 
         Guardian::factory()->count(10)->create();
         Classroom::factory(4)
-        ->hasStudents(5) // Setiap kelas memiliki 10 siswa
+        ->hasStudents(5) 
+        ->create();
+        Subject::factory(5)
+        ->hasTeachers() 
         ->create();
 
         User::factory()->create([
