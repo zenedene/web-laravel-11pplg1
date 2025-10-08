@@ -1,5 +1,5 @@
 <x-layout>
-    <<div class="max-w-8xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+    <div class="max-w-8xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-100">
                 <tr>
