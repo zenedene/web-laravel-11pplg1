@@ -1,4 +1,4 @@
-@props(['title', 'svg', 'link' => '#'])
+@props(['title', 'svg', 'link' => ''])
 
 <a href="{{ $link }}"
    class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg 

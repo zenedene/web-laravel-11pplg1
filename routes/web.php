@@ -18,6 +18,11 @@ Route::get('/guardian', [GuardianController::class, 'index']);
 Route::get('/classroom', [ClassroomController::class, 'index']);
 Route::get('/subjects', [SubjectController::class, 'index']);
 Route::get('/teachers', [TeacherController::class, 'index']);
-Route::get('/dashboard', function(){
-    return view('admin.dashboard');
+
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+
+    Route::get('/students', [StudentController::class, 'index'])->name('admin.students');
 });
