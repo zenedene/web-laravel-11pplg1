@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Student;
+use App\Models\Classroom;
 use Illuminate\Http\Request;
 
-class StudentController extends Controller
+class ClassroomController extends Controller
 {
     public function index()
     {
-        $students = Student::all();
-        return view('components.admin.student', compact('students'))->with('title', 'Admin - Student');
+        $classrooms = Classroom::all();
+        return view('components.admin.classroom', compact('classrooms'))->with('title', 'Admin - Classroom');
     }
 
     /**

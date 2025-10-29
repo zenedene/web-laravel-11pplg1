@@ -7,12 +7,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    /** @use HasFactory<\Database\Factories\StudentFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'email',
+        'classroom_id',
+        'address',
+        'birthdate'
+    ];
 
     protected $with = ['classroom'];
 
-    public function classroom(){
+    protected $casts = [
+        'birthdate' => 'date',
+    ];
+
+    public function classroom()
+    {
         return $this->belongsTo(Classroom::class, 'classroom_id');
     }
 }

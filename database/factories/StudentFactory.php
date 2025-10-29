@@ -25,6 +25,6 @@ class StudentFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'address' => fake()->address(),
             'birthdate' => fake()->date(),
-        ];
+        ];  
     }
 }

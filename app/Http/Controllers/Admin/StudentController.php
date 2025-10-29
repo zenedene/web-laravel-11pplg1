@@ -4,61 +4,32 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Student;
+use App\Models\Classroom;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
+    // Untuk halaman admin (back-end)
     public function index()
     {
-        $students = Student::all();
-        return view('components.admin.student', compact('students'))->with('title', 'Admin - Student');
+        $students = Student::with('classroom')->paginate(10);
+        $classrooms = Classroom::all();
+        
+        return view('components.admin.student', compact('students', 'classrooms'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
-    }
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:students,email',
+            'birthdate' => 'required|date|before:today',
+            'address' => 'nullable|string',
+            'classroom_id' => 'required|exists:classrooms,id',
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        Student::create($validated);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()->back()->with('success', 'Data siswa berhasil ditambahkan!');
     }
 }

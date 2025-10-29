@@ -9,22 +9,29 @@ use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\StudentController as AdminStudentController;
+use App\Http\Controllers\Admin\ClassroomController as AdminClassroomController;
 
+// Public Routes
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
-Route::get('/student', [StudentController::class, 'index']);
+Route::get('/student', [StudentController::class, 'index']); // Public student page
 Route::get('/guardian', [GuardianController::class, 'index']);
 Route::get('/classroom', [ClassroomController::class, 'index']);
 Route::get('/subjects', [SubjectController::class, 'index']);
 Route::get('/teachers', [TeacherController::class, 'index']);
 
-Route::get('/students', [StudentController::class, 'index'])->name('students.index');
-
-Route::prefix('admin')->group(function () {
+// Admin Routes
+Route::prefix('admin')->name('admin.')->group(function () {
+    // Dashboard
     Route::get('/dashboard', function () {
         return view('components.admin.dashboard');
-    })->name('admin.dashboard');
+    })->name('dashboard');
 
-    Route::get('/students', [AdminStudentController::class, 'index'])->name('admin.students.index');
+    // Students Management
+    Route::get('/students', [AdminStudentController::class, 'index'])->name('students.index');
+    Route::post('/students', [AdminStudentController::class, 'store'])->name('students.store');
+    
+    // Classrooms Management
+    Route::get('/classrooms', [AdminClassroomController::class, 'index'])->name('classrooms.index');
 });
