@@ -1,6 +1,4 @@
-@extends('admin.components.layout')
-
-@section('content')
+<x-admin.layout>
     <div class="mb-6">
         <h1 class="text-2xl font-semibold text-gray-900 dark:text-white">Data Siswa</h1>
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Daftar seluruh siswa yang terdaftar</p>
@@ -74,4 +72,4 @@
             </div>
         @endif
     </div>
-@endsection
+</x-admin.layout>

@@ -1,4 +1,4 @@
-<x-layout>
+<x-xlayout>
     <div class="max-w-8xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-100">
@@ -12,7 +12,7 @@
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
-                @foreach ($student as $index => $user)
+                @foreach ($students as $index => $user)
                     <tr>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ $loop->iteration }}</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ $user['name'] }}</td>
@@ -26,4 +26,4 @@
         </table>
     </div>
     <x-slot:judul>{{ $title }}</x-slot:judul>
-</x-layout>
+</x-xlayout>

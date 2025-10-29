@@ -1,23 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
-{
-    $students = Student::all();
-    return view('student', [
-        'title' => 'Student',
-        'students' => $students
-    ]);
-}
+    {
+        $students = Student::all();
+        return view('components.admin.student', compact('students'))->with('title', 'Admin - Student');
+    }
 
     /**
      * Show the form for creating a new resource.

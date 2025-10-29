@@ -10,17 +10,15 @@
 </head>
 
 <body class="bg-gray-50 dark:bg-gray-900">
-    
-    <!-- Navbar -->
-    @include('admin.components.navbar')
-    
-    <!-- Sidebar -->
-    @include('admin.components.sidebar')
-    
+
+    <x-admin.navbar></x-admin.navbar>
+
+    <x-admin.sidebar></x-admin.sidebar>
+
     <!-- Main Content Area -->
     <main class="p-4 md:ml-64 min-h-screen pt-20">
         <div class="mx-auto max-w-full">
-            @yield('content')
+            {{ $slot }}
         </div>
     </main>
 
