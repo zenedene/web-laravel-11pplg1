@@ -4,27 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Subject;
-use App\Models\Teacher;
-use Illuminate\Http\Request;
 
 class SubjectController extends Controller
 {
-    /**
-     * Tampilkan daftar semua mata pelajaran untuk admin.
-     */
     public function index()
     {
-        $subjects = Subject::with('teachers')->paginate(10);
-        $teachers = Teacher::all();
+        $subjects = Subject::with('teachers')->get();
 
-        return view('components.admin.subject', compact('subjects', 'teachers'));
-    }
+        $columns = [
+            ['key' => 'index', 'label' => 'NO'],
+            ['key' => 'name', 'label' => 'Nama Subject'],
+            ['key' => 'description', 'label' => 'Description'],
+            ['key' => 'teachers', 'label' => 'Teacher', 'relation' => 'teachers', 'relation_key' => 'name'],
 
-    /**
-     * Simpan data mata pelajaran baru.
-     */
-    public function store(Request $request)
-    {
-       
+        ];
+
+        return view('admin.subjects.index', compact('subjects', 'columns'));
     }
 }

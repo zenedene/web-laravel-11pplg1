@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\ClassroomController as AdminClassroomController;
 use App\Http\Controllers\Admin\SubjectController as AdminSubjectController;
 use App\Http\Controllers\Admin\TeacherController as AdminTeacherController;
 use App\Http\Controllers\Admin\GuardianController as AdminGuardianController;
+use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
 
 
 // Public Routes
@@ -25,30 +27,17 @@ Route::get('/classroom', [ClassroomController::class, 'index']);
 Route::get('/subjects', [SubjectController::class, 'index']);
 Route::get('/teachers', [TeacherController::class, 'index']);
 
-// Admin Routes
 Route::prefix('admin')->name('admin.')->group(function () {
     // Dashboard
     Route::get('/dashboard', function () {
         return view('components.admin.dashboard');
     })->name('dashboard');
 
-    // Students Management
-    Route::get('/students', [AdminStudentController::class, 'index'])->name('students.index');
-    Route::post('/students', [AdminStudentController::class, 'store'])->name('students.store');
-
-    // Subject Management
-    Route::get('/subjects', [AdminSubjectController::class, 'index'])->name('subjects.index');
-    Route::post('/subjects', [AdminSubjectController::class, 'store'])->name('subjects.store');
-        
-    Route::get('/guardian', [AdminGuardianController::class, 'index'])->name('guardian.index');
-    Route::post('/guardian', [AdminGuardianController::class, 'store'])->name('guardian.store');
-    
-    // Classrooms Management
-    Route::get('/classrooms', [AdminClassroomController::class, 'index'])->name('classrooms.index');
-    
-    Route::get('/teachers', [AdminTeacherController::class, 'index'])->name('teachers.index');
-    Route::post('/teachers', [AdminTeacherController::class, 'store'])->name('teachers.store');
-
-
-    
+ Route::resource('students', AdminStudentController::class);
+ Route::resource('guardians', AdminGuardianController::class);
+ Route::resource('classrooms', AdminClassroomController::class);
+ Route::resource('teachers', AdminTeacherController::class);
+ Route::resource('subjects', AdminSubjectController::class);
+ Route::get('profile', [AdminProfileController::class, 'index']);
+ Route::get('contact', [AdminContactController::class, 'index']);
 });

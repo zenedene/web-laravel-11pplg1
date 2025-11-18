@@ -57,7 +57,7 @@
                                     class="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Students</a>
                             </li>
                             <li>
-                                <a href="/admin/guardian"
+                                <a href="/admin/guardians"
                                     class="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Guardian</a>
                             </li>
                             <li>
@@ -70,12 +70,12 @@
                 </ul>
                 <ul class="pt-5 mt-5 space-y-2 border-t border-gray-200 dark:border-gray-700">
                     <li>
-                        <x-admin.sidelink title="Contact" link="/contact"
+                        <x-admin.sidelink title="Contact" link="/admin/contact"
                             svg='<svg width="26px" height="26px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_iconCarrier"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.7071 13.2929L16.0208 14.9792C15.545 15.455 14.7655 15.5268 14.2098 15.1472C12.8261 14.2014 11.7986 13.1739 10.8528 11.7902C10.4732 11.2345 10.545 10.455 11.0208 9.97918L12.7071 8.29289C13.6973 7.30272 13.7403 5.7093 12.8052 4.66813L11.5 3.18934C10.3954 1.95083 8.48815 1.79198 7.18934 2.81066L5.75 4.06066C4.51184 5.04303 3.78855 6.54393 3.86852 8.08235C4.04488 11.1723 5.37157 14.4095 8.4 17.4379C11.4284 20.4664 14.6656 21.7931 17.7555 21.9694C19.294 22.0494 20.795 21.3261 21.7774 20.0879L23.0274 18.6486C24.0461 17.3498 23.8872 15.4425 22.6487 14.3379L21.1699 13.0327C20.1288 12.0976 18.5353 12.1406 17.5452 13.1308L17.7071 13.2929Z" fill="currentColor"></path></g></svg>' />
                     </li>
 
                     <li>
-                        <x-admin.sidelink title="Profile" link="/profile"
+                        <x-admin.sidelink title="Profile" link="/admin/profile"
                             svg='<svg width="26px" height="26px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_iconCarrier"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4ZM6 8C6 4.68629 8.68629 2 12 2C15.3137 2 18 4.68629 18 8C18 11.3137 15.3137 14 12 14C8.68629 14 6 11.3137 6 8ZM8.00873 16C5.23898 16 3 18.2386 3 21.0082C3 21.5567 3.44405 22 3.99262 22H20.0074C20.556 22 21 21.5567 21 21.0082C21 18.2386 18.761 16 15.9913 16H8.00873Z" fill="currentColor"></path></g></svg>' />
                     </li>
 

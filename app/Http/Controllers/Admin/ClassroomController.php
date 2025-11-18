@@ -11,7 +11,7 @@ class ClassroomController extends Controller
     public function index()
     {
         $classrooms = Classroom::all();
-        return view('components.admin.classroom', compact('classrooms'))->with('title', 'Admin - Classroom');
+        return view('admin.classrooms.index', compact('classrooms'))->with('title', 'Admin - Classroom');
     }
 
     /**
@@ -27,7 +27,13 @@ class ClassroomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|unique:classrooms,name|max:255'
+        ]);
+
+        Classroom::create($validated);
+
+        return redirect()->back()->with('success', 'Kelas berhasil ditambahkan!');
     }
 
     /**
